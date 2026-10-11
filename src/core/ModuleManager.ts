@@ -1,11 +1,11 @@
 import { BaseModule } from "./BaseModule";
 
+import { GoogleServicesModule } from "../modules/GoogleServices";
 import { KeyboardModule } from "../modules/Keyboard";
 import { PassiveModule } from "../modules/Passive";
 import { PlayerModule } from "../modules/Player";
 import { ShipModule } from "../modules/Ship";
 import { UwUifyModule } from "../modules/UwUify";
-import { GoogleServicesModule } from "../modules/GoogleServices";
 
 import { Logger } from "../logger/Logger";
 
@@ -14,12 +14,12 @@ export class ModuleManager {
 
     // prettier-ignore
     private static modules: BaseModule[] = [
+        new GoogleServicesModule(),
         new KeyboardModule(),
         new PassiveModule(),
         new PlayerModule(),
         new ShipModule(),
-        new UwUifyModule(),
-        new GoogleServicesModule()
+        new UwUifyModule()
     ];
 
     /** Initializes all modules by calling init() in module */
