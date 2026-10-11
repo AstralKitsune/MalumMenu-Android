@@ -1,5 +1,6 @@
 import { BaseModule } from "./BaseModule";
 
+import { GoogleServicesModule } from "../modules/GoogleServices";
 import { KeyboardModule } from "../modules/Keyboard";
 import { PassiveModule } from "../modules/Passive";
 import { PlayerModule } from "../modules/Player";
@@ -13,6 +14,7 @@ export class ModuleManager {
 
     // prettier-ignore
     private static modules: BaseModule[] = [
+        new GoogleServicesModule(),
         new KeyboardModule(),
         new PassiveModule(),
         new PlayerModule(),

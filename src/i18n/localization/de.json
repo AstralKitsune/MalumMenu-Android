@@ -20,29 +20,24 @@
         },
         "functions": {
             "go_to_main_menu": "Gehe zum Hauptmenü",
-
             "noclip": "NoClip",
             "custom_speed": "Use Custom Speed",
             "speed_val": "Custom Speed: {0} / 20",
-
             "no_shadows": "Keine Schatten",
-
             "complete_my_tasks": "Complete My Tasks",
-
             "call_meeting": "Call Meeting",
             "sabotage_reactor": "Sabotiere Reaktor",
             "open_sabotage_map": "Öffne Sabotage-Karte",
             "unlock_vents": "Benutze Vents",
             "kick_vents": "Kicke alle aus Vents",
             "walk_in_vents": "In Vents laufen",
-
             "unlock_cosmetics": "Unlock Cosmetics",
             "full_resolution": "Volle Auflösung",
             "disable_analytics": "Disable Analytics",
-
             "uwuify": "UwU?",
             "keyboard_mode": "Tastatur-Modus",
-            "keyboard_mode_note": "Benötigt eine physische Tastatur. Touch-Steuerung funktioniert möglicherweise nicht."
+            "keyboard_mode_note": "Benötigt eine physische Tastatur. Touch-Steuerung funktioniert möglicherweise nicht.",
+            "disable_google_services": "Google-Dienste deaktivieren"
         },
         "other": {
             "language": "Select Language",
@@ -58,7 +53,9 @@
             "hide_callback": "Icon hidden",
             "kill_callback": "Menu killed",
             "exit_game": "Long press button to exit game",
-            "on_locale_changed": "Mod Menü Sprache geändert zu {0}, Spiel neu starten um anzuwenden"
+            "on_locale_changed": "Mod Menü Sprache geändert zu {0}, Spiel neu starten um anzuwenden",
+            "google_services_disabled": "Google-Dienste deaktiviert",
+            "google_services_enabled": "Google-Dienste aktiviert"
         }
     }
 }
