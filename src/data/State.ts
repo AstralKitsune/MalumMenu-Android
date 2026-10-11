@@ -9,7 +9,7 @@ export const State = {
 
     unlockCosmetics: false,
     disableAnalytics: false,
-    disableGoogleServices: false,
+    disableGoogleServices: true,
     uwuifyMode: false,
     keyboardMode: false
 };
