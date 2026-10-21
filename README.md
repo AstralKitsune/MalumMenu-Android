@@ -7,16 +7,16 @@
     <img src="https://img.shields.io/badge/Join%20Us%20on-Discord-blue?style=flat&logo=discord" alt="Discord">
   </a>
 
-  <a href="https://github.com/astra1dev#%EF%B8%8F-support-me">
+  <a href="https://github.com/AstralKitsune#%EF%B8%8F-support-me">
     <img src="https://img.shields.io/badge/Support%20me-Monero-FF6600?style=flat&logo=monero" alt="Monero">
   </a>
 
-  <a href="https://github.com/astra1dev/MalumMenu-Android/releases">
-    <img src="https://img.shields.io/github/downloads/astra1dev/MalumMenu-Android/total?style=flat&logo=github&label=Total%20Downloads&color=2ECC71" alt="Downloads">
+  <a href="https://github.com/AstralKitsune/MalumMenu-Android/releases">
+    <img src="https://img.shields.io/github/downloads/AstralKitsune/MalumMenu-Android/total?style=flat&logo=github&label=Total%20Downloads&color=2ECC71" alt="Downloads">
   </a>
 
-  <a href="https://github.com/astra1dev/MalumMenu-Android/releases/latest">
-    <img src="https://img.shields.io/github/downloads/astra1dev/MalumMenu-Android/latest/total?style=flat&logo=github&label=Downloads@Latest&color=2ECC71" alt="Downloads">
+  <a href="https://github.com/AstralKitsune/MalumMenu-Android/releases/latest">
+    <img src="https://img.shields.io/github/downloads/AstralKitsune/MalumMenu-Android/latest/total?style=flat&logo=github&label=Downloads@Latest&color=2ECC71" alt="Downloads">
   </a>
 </p>
 
@@ -68,7 +68,7 @@ Before you download anything, make sure your platform is supported:
 - ❓ Custom / OEM ROMs (may or may not work)
 - ❌ Emulators (`frida-java-bridge`, which is required for the menu, doesn't work on them)
 
-Download and install the .apk from [releases](https://github.com/astra1dev/MalumMenu-Android/releases/latest).
+Download and install the .apk from [releases](https://github.com/AstralKitsune/MalumMenu-Android/releases/latest).
 
 Release notes can be found below each [release](../../releases) and in [CHANGELOG.md](/docs/CHANGELOG.md).
 
@@ -101,7 +101,7 @@ Requirements:
 
 ```sh
 # Clone the repository
-git clone https://github.com/astra1dev/MalumMenu-Android
+git clone https://github.com/AstralKitsune/MalumMenu-Android
 cd MalumMenu-Android
 
 # Create and activate a virtual environment (Not necessary, but considered good practice)
@@ -192,7 +192,7 @@ See [CONTRIBUTING.md](docs/CONTRIBUTING.md)
 
 - [Frida](https://frida.re/) - dynamic instrumentation toolkit
 - [frida-il2cpp-bridge](https://github.com/vfsfitvnm/frida-il2cpp-bridge/) - hijack any IL2CPP game at runtime
-- [frida-java-menu](https://github.com/astra1dev/frida-java-menu) - create custom floating menus on Android
+- [frida-java-menu](https://github.com/AstralKitsune/frida-java-menu) - create custom floating menus on Android
 - [objection](https://github.com/sensepost/objection) - runtime mobile exploration toolkit (used to embed frida-gadget into APKs)
 - [fallguys-frida-modmenu](https://github.com/repinek/fallguys-frida-modmenu) - main inspiration for this project, utils & modules & i18n logic
 - [MalumMenu](https://github.com/scp222thj/MalumMenu) - Among Us cheat menu for PC

@@ -23,11 +23,11 @@ Issues and Pull requests are the types of contributions we accept.
 
 #### Create a new issue
 
-If you've found something that should be updated, search open issues to see if someone else has reported the same thing. If it's something new, open an issue using a [template](https://github.com/astra1dev/MalumMenu-Android/issues/new/choose). We'll use the issue to have a conversation about the problem you want to fix.
+If you've found something that should be updated, search open issues to see if someone else has reported the same thing. If it's something new, open an issue using a [template](https://github.com/AstralKitsune/MalumMenu-Android/issues/new/choose). We'll use the issue to have a conversation about the problem you want to fix.
 
 #### Solve an issue
 
-Scan through our [existing issues](https://github.com/astra1dev/MalumMenu-Android/issues) to find one that interests you. You can narrow down the search using `labels` as filters. As a general rule, we don’t assign issues to anyone. If you find an issue to work on, you are welcome to open a PR with a fix.
+Scan through our [existing issues](https://github.com/AstralKitsune/MalumMenu-Android/issues) to find one that interests you. You can narrow down the search using `labels` as filters. As a general rule, we don’t assign issues to anyone. If you find an issue to work on, you are welcome to open a PR with a fix.
 
 ### 🛠️ Pull requests
 
@@ -57,7 +57,7 @@ You should always review your own pull request first, before marking it as ready
 
 # Community translations
 
-JSON translation files are located in the [`src/i18n/localization`](https://github.com/astra1dev/MalumMenu-Android/tree/main/src/i18n/localization) directory.
+JSON translation files are located in the [`src/i18n/localization`](https://github.com/AstralKitsune/MalumMenu-Android/tree/main/src/i18n/localization) directory.
 If you want to contribute a new translation, create a JSON file with the name of the language (e.g. `fr.json` for French) and add your translations in the same format as the existing files.
 
 If you notice any mistakes or inconsistencies in the existing translations, feel free to open a pull request with your fixes.
@@ -119,7 +119,7 @@ Before repackaging the APK, the permission to display over other apps also needs
 (If we're using the listen interaction, we also need to add `android.permission.INTERNET` so frida-gadget can expose the interface for the PC to connect to. Among Us already has the INTERNET permission, so we actually don't have to do this.
 In script mode, this wouldn't be needed anyway as the script works fully standalone without connecting to a frida-server)
 
-Optionally, the package name can be changed so MalumMenu-Android can be installed alongside the original game. This is done by setting `package="com.astra1dev.MalumMenu"` in `AndroidManifest.xml`.
+Optionally, the package name can be changed so MalumMenu-Android can be installed alongside the original game. This is done by setting `package="com.AstralKitsune.MalumMenu"` in `AndroidManifest.xml`.
 
 The app's display name can also be changed by setting `<string name="app_name">MalumMenu</string>` in `res/values/strings.xml`.
 

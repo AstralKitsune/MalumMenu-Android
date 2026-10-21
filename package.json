@@ -1,7 +1,7 @@
 {
     "name": "malummenu-android",
     "description": "Android Among Us cheat using FRIDA and frida-il2cpp-bridge",
-    "author": "astra1dev",
+    "author": "AstralKitsune",
     "keywords": [
         "frida",
         "il2cpp",
@@ -9,13 +9,13 @@
         "amongus",
         "modmenu"
     ],
-    "homepage": "https://github.com/astra1dev/MalumMenu-Android#readme",
+    "homepage": "https://github.com/AstralKitsune/MalumMenu-Android#readme",
     "repository": {
         "type": "git",
-        "url": "https://github.com/astra1dev/MalumMenu-Android.git"
+        "url": "https://github.com/AstralKitsune/MalumMenu-Android.git"
     },
     "bugs": {
-        "url": "https://github.com/astra1dev/MalumMenu-Android/issues"
+        "url": "https://github.com/AstralKitsune/MalumMenu-Android/issues"
     },
     "license": "GPL-3.0",
     "main": "src/index.ts",
@@ -47,7 +47,7 @@
     "dependencies": {
         "frida-il2cpp-bridge": "^0.14.0",
         "frida-java-bridge": "^7.0.13",
-        "frida-java-menu": "github:astra1dev/frida-java-menu"
+        "frida-java-menu": "github:AstralKitsune/frida-java-menu"
     },
     "prettier": {
         "tabWidth": 4,
