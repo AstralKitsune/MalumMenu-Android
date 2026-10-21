@@ -31,7 +31,7 @@
     },
     "devDependencies": {
         "@eslint/js": "^10.0.1",
-        "@types/frida-gum": "^19.8.0",
+        "@types/frida-gum": "^19.11.0",
         "@types/node": "^26.0.1",
         "@typescript-eslint/eslint-plugin": "^8.70.1",
         "@typescript-eslint/parser": "^8.70.1",
