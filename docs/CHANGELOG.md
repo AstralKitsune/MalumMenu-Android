@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/),
 
 ## [Unreleased]
 
+### Changed
+
+- Bump prettier from 3.9.5 to 3.9.10 by [@dependabot] ([#88])
+
 ### Fixed
 
 - The menu no longer opens after dragging the icon
@@ -89,6 +93,7 @@ Initial release
 [@repinek]: https://github.com/repinek
 [@dependabot]: https://github.com/dependabot
 
+[#88]: https://github.com/AstralKitsune/MalumMenu-Android/pull/88
 [#55]: https://github.com/AstralKitsune/MalumMenu-Android/pull/55
 [#54]: https://github.com/AstralKitsune/MalumMenu-Android/pull/54
 [#53]: https://github.com/AstralKitsune/MalumMenu-Android/pull/53
