@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/),
 
 ### Changed
 
+- Bump @types/frida-gum from 19.8.0 to 19.12.0 by [@dependabot] ([#91])
 - Bump prettier from 3.9.5 to 3.9.10 by [@dependabot] ([#88])
 
 ### Fixed
@@ -93,6 +94,7 @@ Initial release
 [@repinek]: https://github.com/repinek
 [@dependabot]: https://github.com/dependabot
 
+[#91]: https://github.com/AstralKitsune/MalumMenu-Android/pull/91
 [#88]: https://github.com/AstralKitsune/MalumMenu-Android/pull/88
 [#55]: https://github.com/AstralKitsune/MalumMenu-Android/pull/55
 [#54]: https://github.com/AstralKitsune/MalumMenu-Android/pull/54
