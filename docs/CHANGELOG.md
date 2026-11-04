@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/),
 
 ### Changed
 
+- Bump typescript-eslint from 8.63.0 to 8.72.1 by [@dependabot] ([#95])
 - Bump frida-tools from 14.10.4 to 14.11.0 by [@dependabot] ([#70])
 - Bump @types/node from 26.1.1 to 26.6.6 by [@dependabot] ([#89])
 - Bump @types/frida-gum from 19.8.0 to 19.12.0 by [@dependabot] ([#91])
@@ -96,6 +97,7 @@ Initial release
 [@repinek]: https://github.com/repinek
 [@dependabot]: https://github.com/dependabot
 
+[#95]: https://github.com/AstralKitsune/MalumMenu-Android/pull/95
 [#91]: https://github.com/AstralKitsune/MalumMenu-Android/pull/91
 [#89]: https://github.com/AstralKitsune/MalumMenu-Android/pull/89
 [#88]: https://github.com/AstralKitsune/MalumMenu-Android/pull/88
