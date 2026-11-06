@@ -6,6 +6,7 @@ import { UwUifyModule } from "../../modules/UwUify";
 import { UnityUtils } from "../../utils/UnityUtils";
 import { ModuleManager } from "../../core/ModuleManager";
 import { PassiveModule } from "../../modules/Passive";
+import { GoogleServicesModule } from "../../modules/GoogleServices";
 
 export class PassiveTab {
     static draw(layout: ObsidianLayout) {
@@ -31,6 +32,13 @@ export class PassiveTab {
         add(
             layout.toggle(I18n.t("menu.functions.disable_analytics"), (state: boolean) => {
                 State.disableAnalytics = state;
+            })
+        );
+
+        add(
+            layout.toggle(I18n.t("menu.functions.disable_google_services"), (state: boolean) => {
+                State.disableGoogleServices = state;
+                ModuleManager.get(GoogleServicesModule)?.toggleGoogleServices(state);
             })
         );
 
