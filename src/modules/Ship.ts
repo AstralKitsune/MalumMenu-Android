@@ -7,8 +7,10 @@ import { Logger } from "../logger/Logger";
 export class ShipModule extends BaseModule {
     public readonly name = "Ship";
 
+    private AmongUsClient!: Il2Cpp.Class;
     private HudManager!: Il2Cpp.Class;
     private MapOptions!: Il2Cpp.Class;
+    private MeetingRoomManager!: Il2Cpp.Class;
     private PlayerControl!: Il2Cpp.Class;
     private ShipStatus!: Il2Cpp.Class;
     private VentilationSystem!: Il2Cpp.Class;
@@ -16,8 +18,10 @@ export class ShipModule extends BaseModule {
     private ShipStatus_FixedUpdate!: Il2Cpp.Method;
 
     public init(): void {
+        this.AmongUsClient = AssemblyHelper.AssemblyCSharp.class("AmongUsClient");
         this.HudManager = AssemblyHelper.AssemblyCSharp.class("HudManager");
         this.MapOptions = AssemblyHelper.AssemblyCSharp.class("MapOptions");
+        this.MeetingRoomManager = AssemblyHelper.AssemblyCSharp.class("MeetingRoomManager");
         this.PlayerControl = AssemblyHelper.AssemblyCSharp.class("PlayerControl");
         this.ShipStatus = AssemblyHelper.AssemblyCSharp.class("ShipStatus");
         this.VentilationSystem = AssemblyHelper.AssemblyCSharp.class("VentilationSystem");
@@ -59,7 +63,41 @@ export class ShipModule extends BaseModule {
             return;
         }
 
-        localPlayer.method<void>("CmdReportDeadBody").invoke(NULL);
+        const amongUsClientInstance = module.AmongUsClient.field<Il2Cpp.Object>("Instance").value;
+        if (amongUsClientInstance.isNull()) {
+            Logger.warn(`[${module.name}::callMeeting] AmongUsClient.Instance is null`);
+            return;
+        }
+
+        const amHost = amongUsClientInstance.method<boolean>("get_AmHost").invoke();
+
+        if (!amHost) {
+            localPlayer.method<void>("CmdReportDeadBody").invoke(NULL);
+            Logger.debug(`[${module.name}::callMeeting] Called meeting as non-host`);
+            return;
+        }
+
+        module.MeetingRoomManager.initialize();
+        const meetingRoomManagerInstance = module.MeetingRoomManager.field<Il2Cpp.Object>("Instance").value;
+        if (meetingRoomManagerInstance.isNull()) {
+            Logger.warn(`[${module.name}::callMeeting] MeetingRoomManager.Instance is null`);
+            return;
+        }
+
+        const HudManagerInstanceExists = module.HudManager.method<boolean>("get_InstanceExists").invoke();
+        if (!HudManagerInstanceExists) {
+            Logger.warn(`[${module.name}::callMeeting] HudManagerInstance does not exist`);
+            return;
+        }
+
+        // No isNull check here because we trust that InstanceExists tells the truth
+        const HudManagerInstance = module.HudManager.method<Il2Cpp.Object>("get_Instance").invoke();
+
+        // Same as PlayerControl.ReportDeadBody but without additional checks
+        meetingRoomManagerInstance.method<void>("AssignSelf").invoke(localPlayer, NULL);
+        HudManagerInstance.method<void>("OpenMeetingRoom").invoke(localPlayer);
+        localPlayer.method<void>("RpcStartMeeting").invoke(NULL);
+        Logger.debug(`[${module.name}::callMeeting] Called meeting as host`);
     }
 
     public sabotageReactor(): void {

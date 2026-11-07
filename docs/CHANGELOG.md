@@ -18,6 +18,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/),
 
 ### Fixed
 
+- Make Call Meeting work as host
 - The menu no longer opens after dragging the icon
 
 ## [2.1.1] - 2026-10-01
