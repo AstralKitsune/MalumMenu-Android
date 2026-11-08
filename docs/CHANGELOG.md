@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/),
 
 ## [Unreleased]
 
+### Added
+
+- Force Start Game
+
 ### Changed
 
 - Bump globals from 17.12.0 to 17.14.0 by [@dependabot] ([#98])

@@ -49,6 +49,10 @@
 - Kick all from Vents
 - Walk in Vents
 
+### Host
+
+- Force Start Game
+
 ### Passive
 
 - Unlock Cosmetics (Hats, Visors, Skins, Pets, Nameplates, Cosmicubes, Bundles)
