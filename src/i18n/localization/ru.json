@@ -20,29 +20,24 @@
         },
         "functions": {
             "go_to_main_menu": "Вернуться в главное меню",
-
             "noclip": "NoClip",
             "custom_speed": "Использовать пользовательскую скорость",
             "speed_val": "Скорость: {0} / 20",
-
             "no_shadows": "Отключить тени",
-
             "complete_my_tasks": "Выполнить мои задания",
-
             "call_meeting": "Созвать экстренное собрание",
             "sabotage_reactor": "Саботировать реактор",
             "open_sabotage_map": "Открыть карту саботажа",
             "unlock_vents": "Разблокировать венты",
             "kick_vents": "Выгнать всех из вентов",
             "walk_in_vents": "Свободно двигаться в венте",
-
             "unlock_cosmetics": "Разблокировать косметику",
             "full_resolution": "Полное разрешение",
             "disable_analytics": "Отключить аналитику",
-
             "uwuify": "UwU?",
             "keyboard_mode": "Режим клавиатуры",
-            "keyboard_mode_note": "Требуется физическая клавиатура. Сенсорное управление может не работать."
+            "keyboard_mode_note": "Требуется физическая клавиатура. Сенсорное управление может не работать.",
+            "disable_google_services": "Отключить сервисы Google"
         },
         "other": {
             "language": "Выбрать язык",
@@ -58,7 +53,9 @@
             "hide_callback": "Иконка скрыта",
             "kill_callback": "Меню отключено",
             "exit_game": "Зажмите кнопку, чтобы закрыть игру",
-            "on_locale_changed": "Язык мод-меню изменен: {0}. Перезапустите игру, чтобы применить изменения."
+            "on_locale_changed": "Язык мод-меню изменен: {0}. Перезапустите игру, чтобы применить изменения.",
+            "google_services_disabled": "Сервисы Google отключены",
+            "google_services_enabled": "Сервисы Google включены"
         }
     }
 }

@@ -20,29 +20,24 @@
         },
         "functions": {
             "go_to_main_menu": "Go to Main Menu",
-
             "noclip": "NoClip",
             "custom_speed": "Use Custom Speed",
             "speed_val": "Custom Speed: {0} / 20",
-
             "no_shadows": "No Shadows",
-
             "complete_my_tasks": "Complete My Tasks",
-
             "call_meeting": "Call Meeting",
             "sabotage_reactor": "Sabotage Reactor",
             "open_sabotage_map": "Open Sabotage Map",
             "unlock_vents": "Unlock Vents",
             "kick_vents": "Kick All From Vents",
             "walk_in_vents": "Walk In Vents",
-
             "unlock_cosmetics": "Unlock Cosmetics",
             "full_resolution": "Full Resolution",
             "disable_analytics": "Disable Analytics",
-
             "uwuify": "UwU?",
             "keyboard_mode": "Keyboard Mode",
-            "keyboard_mode_note": "Requires a physical keyboard. Touch controls may not work."
+            "keyboard_mode_note": "Requires a physical keyboard. Touch controls may not work.",
+            "disable_google_services": "Disable Google Services"
         },
         "other": {
             "language": "Select Language",
@@ -58,7 +53,9 @@
             "hide_callback": "Icon hidden",
             "kill_callback": "Menu killed",
             "exit_game": "Long press button to exit game",
-            "on_locale_changed": "Changed mod menu language to {0}, restart game to apply"
+            "on_locale_changed": "Changed mod menu language to {0}, restart game to apply",
+            "google_services_disabled": "Google Services disabled",
+            "google_services_enabled": "Google Services enabled"
         }
     }
 }
