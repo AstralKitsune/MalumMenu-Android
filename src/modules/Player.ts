@@ -9,9 +9,7 @@ export class PlayerModule extends BaseModule {
 
     private Vector2!: Il2Cpp.Class;
 
-    private AmongUsClient!: Il2Cpp.Class;
     private Constants!: Il2Cpp.Class;
-    private NetworkModes!: Il2Cpp.Class;
     private PhysicsHelpers!: Il2Cpp.Class;
     private PlayerControl!: Il2Cpp.Class;
     private PlayerPhysics!: Il2Cpp.Class;
@@ -30,9 +28,7 @@ export class PlayerModule extends BaseModule {
     public init(): void {
         this.Vector2 = AssemblyHelper.CoreModule.class("UnityEngine.Vector2");
 
-        this.AmongUsClient = AssemblyHelper.AssemblyCSharp.class("AmongUsClient");
         this.Constants = AssemblyHelper.AssemblyCSharp.class("Constants");
-        this.NetworkModes = AssemblyHelper.AssemblyCSharp.class("NetworkModes");
         this.PhysicsHelpers = AssemblyHelper.AssemblyCSharp.class("PhysicsHelpers");
         this.PlayerControl = AssemblyHelper.AssemblyCSharp.class("PlayerControl");
         this.PlayerPhysics = AssemblyHelper.AssemblyCSharp.class("PlayerPhysics");
@@ -102,19 +98,18 @@ export class PlayerModule extends BaseModule {
         };
 
         this.HudManager_Update.implementation = function (): void {
-            const HudManagerInstance = module.HudManager.method<Il2Cpp.Object>("get_Instance").invoke();
             const localPlayer = module.localPlayer;
 
-            if (HudManagerInstance.isNull() || localPlayer.isNull()) {
+            if (localPlayer.isNull()) {
                 return this.method<void>("Update").invoke();
             }
 
             // NetworkedPlayerInfo
             const data = localPlayer.method<Il2Cpp.Object>("get_Data").invoke();
-            const impostorVentButton = HudManagerInstance.field<Il2Cpp.Object>("ImpostorVentButton").value;
+            const impostorVentButton = this.field<Il2Cpp.Object>("ImpostorVentButton").value;
             const impostorVentButtonGameObject = UnityUtils.getGameObject(impostorVentButton);
 
-            const shadowQuad = HudManagerInstance.field<Il2Cpp.Object>("ShadowQuad").value;
+            const shadowQuad = this.field<Il2Cpp.Object>("ShadowQuad").value;
             const shadowQuadGameObject = UnityUtils.getGameObject(shadowQuad);
 
             if (State.noShadows) {
