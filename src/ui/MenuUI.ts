@@ -14,6 +14,7 @@ import { MovementTab } from "./tabs/MovementTab";
 import { ESPTab } from "./tabs/ESPTab";
 import { RolesTab } from "./tabs/RolesTab";
 import { ShipTab } from "./tabs/ShipTab";
+import { ChatTab } from "./tabs/ChatTab";
 import { HostTab } from "./tabs/HostTab";
 import { PassiveTab } from "./tabs/PassiveTab";
 import { OtherTab } from "./tabs/OtherTab";
@@ -46,6 +47,7 @@ export class MenuUI {
         ESPTab.draw(MenuUI.layout);
         RolesTab.draw(MenuUI.layout);
         ShipTab.draw(MenuUI.layout);
+        ChatTab.draw(MenuUI.layout);
         HostTab.draw(MenuUI.layout);
         PassiveTab.draw(MenuUI.layout);
         OtherTab.draw(MenuUI.layout);

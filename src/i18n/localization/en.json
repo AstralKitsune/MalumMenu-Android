@@ -15,6 +15,7 @@
             "esp": "<b>——— ESP ———</b>",
             "roles": "<b>——— Roles ———</b>",
             "ship": "<b>——— Ship ———</b>",
+            "chat": "<b>——— Chat ———</b>",
             "host": "<b>——— Host ———</b>",
             "passive": "<b>——— Passive ———</b>",
             "other": "<b>——— Other ———</b>"
@@ -36,6 +37,8 @@
             "unlock_vents": "Unlock Vents",
             "kick_vents": "Kick All From Vents",
             "walk_in_vents": "Walk In Vents",
+
+            "enable_chat": "Enable Chat",
 
             "force_start_game": "Force Start Game",
 

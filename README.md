@@ -49,6 +49,10 @@
 - Kick all from Vents
 - Walk in Vents
 
+### Chat
+
+- Enable Chat
+
 ### Host
 
 - Force Start Game

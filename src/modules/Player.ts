@@ -10,38 +10,46 @@ export class PlayerModule extends BaseModule {
     private Vector2!: Il2Cpp.Class;
 
     private Constants!: Il2Cpp.Class;
+    private HudManager!: Il2Cpp.Class;
+    private MatchInfoHudButton!: Il2Cpp.Class;
+    private MeetingHud!: Il2Cpp.Class;
     private PhysicsHelpers!: Il2Cpp.Class;
     private PlayerControl!: Il2Cpp.Class;
     private PlayerPhysics!: Il2Cpp.Class;
     private PlayerPurchasesData!: Il2Cpp.Class;
-    private HudManager!: Il2Cpp.Class;
+    private ShipStatus!: Il2Cpp.Class;
     private Vent!: Il2Cpp.Class;
 
     private Vector2_Distance!: Il2Cpp.Method;
 
+    private HudManager_Update!: Il2Cpp.Method;
+    private MatchInfoHudButton_Update!: Il2Cpp.Method;
     private PhysicsHelpers_AnythingBetween!: Il2Cpp.Method;
     private PlayerPhysics_LateUpdate!: Il2Cpp.Method;
     private PlayerPurchasesData_GetPurchase!: Il2Cpp.Method;
-    private HudManager_Update!: Il2Cpp.Method;
     private Vent_CanUse!: Il2Cpp.Method;
 
     public init(): void {
         this.Vector2 = AssemblyHelper.CoreModule.class("UnityEngine.Vector2");
 
         this.Constants = AssemblyHelper.AssemblyCSharp.class("Constants");
+        this.HudManager = AssemblyHelper.AssemblyCSharp.class("HudManager");
+        this.MatchInfoHudButton = AssemblyHelper.AssemblyCSharp.class("MatchInfoHudButton");
+        this.MeetingHud = AssemblyHelper.AssemblyCSharp.class("MeetingHud");
         this.PhysicsHelpers = AssemblyHelper.AssemblyCSharp.class("PhysicsHelpers");
         this.PlayerControl = AssemblyHelper.AssemblyCSharp.class("PlayerControl");
         this.PlayerPhysics = AssemblyHelper.AssemblyCSharp.class("PlayerPhysics");
         this.PlayerPurchasesData = AssemblyHelper.AssemblyCSharp.class("PlayerPurchasesData");
-        this.HudManager = AssemblyHelper.AssemblyCSharp.class("HudManager");
+        this.ShipStatus = AssemblyHelper.AssemblyCSharp.class("ShipStatus");
         this.Vent = AssemblyHelper.AssemblyCSharp.class("Vent");
 
         this.Vector2_Distance = this.Vector2.method<number>("Distance", 2);
 
+        this.HudManager_Update = this.HudManager.method<void>("Update");
+        this.MatchInfoHudButton_Update = this.MatchInfoHudButton.method<void>("Update");
         this.PhysicsHelpers_AnythingBetween = this.PhysicsHelpers.method<boolean>("AnythingBetween", 5);
         this.PlayerPhysics_LateUpdate = this.PlayerPhysics.method<void>("LateUpdate");
         this.PlayerPurchasesData_GetPurchase = this.PlayerPurchasesData.method<boolean>("GetPurchase");
-        this.HudManager_Update = this.HudManager.method<void>("Update");
         this.Vent_CanUse = this.Vent.method<boolean>("CanUse", 3);
     }
 
@@ -106,17 +114,6 @@ export class PlayerModule extends BaseModule {
 
             // NetworkedPlayerInfo
             const data = localPlayer.method<Il2Cpp.Object>("get_Data").invoke();
-            const impostorVentButton = this.field<Il2Cpp.Object>("ImpostorVentButton").value;
-            const impostorVentButtonGameObject = UnityUtils.getGameObject(impostorVentButton);
-
-            const shadowQuad = this.field<Il2Cpp.Object>("ShadowQuad").value;
-            const shadowQuadGameObject = UnityUtils.getGameObject(shadowQuad);
-
-            if (State.noShadows) {
-                shadowQuadGameObject.method<void>("SetActive", 1).invoke(false);
-            } else {
-                shadowQuadGameObject.method<void>("SetActive", 1).invoke(true);
-            }
 
             let role: Il2Cpp.Object;
             let canVent: boolean;
@@ -130,15 +127,47 @@ export class PlayerModule extends BaseModule {
             }
             const isDead = data.field<boolean>("IsDead").value;
 
-            if (isDead) {
+            const MeetingHudInstance = module.MeetingHud.field<Il2Cpp.Object>("Instance").value;
+            const inMeeting = !MeetingHudInstance.isNull();
+            const ShipStatusInstance = module.ShipStatus.field<Il2Cpp.Object>("Instance").value;
+            const inGame = !ShipStatusInstance.isNull();
+
+            const shouldShowChatButton = State.enableChat || inMeeting || !inGame || isDead;
+
+            const chat = this.field<Il2Cpp.Object>("Chat").value;
+            const chatGameObject = UnityUtils.getGameObject(chat);
+
+            chatGameObject.method<void>("SetActive").invoke(shouldShowChatButton);
+
+            const shadowQuad = this.field<Il2Cpp.Object>("ShadowQuad").value;
+            const shadowQuadGameObject = UnityUtils.getGameObject(shadowQuad);
+
+            if (State.noShadows || isDead) {
                 shadowQuadGameObject.method<void>("SetActive", 1).invoke(false);
+            } else {
+                shadowQuadGameObject.method<void>("SetActive", 1).invoke(true);
             }
 
             if (!canVent && !isDead) {
+                const impostorVentButton = this.field<Il2Cpp.Object>("ImpostorVentButton").value;
+                const impostorVentButtonGameObject = UnityUtils.getGameObject(impostorVentButton);
+
                 impostorVentButtonGameObject.method<void>("SetActive", 1).invoke(State.unlockVents);
             }
 
             return this.method<void>("Update").invoke();
+        };
+
+        this.MatchInfoHudButton_Update.implementation = function (): void {
+            if (State.enableChat) {
+                // Prevent the MatchInfo and Chat buttons from overlapping
+                const aspectPosition = this.field<Il2Cpp.Object>("aspectPosition").value;
+                const distanceFromEdge = aspectPosition.field<Il2Cpp.Object>("DistanceFromEdge");
+
+                distanceFromEdge.value = module.MatchInfoHudButton.field<Il2Cpp.Object>("adjustedDistanceFromEdge").value;
+            } else {
+                return this.method<void>("Update").invoke();
+            }
         };
 
         //@ts-ignore
