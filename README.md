@@ -150,7 +150,7 @@ If you are not modifying the code, use this mode to build and install the APK wi
 
 ```sh
 # Embed script into APK
-objection patchapk -c objection.cfg.json -s data/AmongUs.apk -l dist/agent.js -a arm64-v8a -V 17.18.0 --pause
+objection patchapk -c objection.cfg.json -s data/AmongUs.apk -l dist/agent.js -a arm64-v8a -V 17.26.2 --pause
 
 # In a new terminal session, patch the manifest to add overlay permission
 # Replace TEMP_DIR with the path to the temp directory objection tells you.
@@ -170,7 +170,7 @@ If you are modifying the code, use this mode so you don't have to rebuild and re
 
 ```sh
 # Embed frida-gadget into APK
-objection patchapk -s data/AmongUs.apk -a arm64-v8a -V 17.18.0 --pause
+objection patchapk -s data/AmongUs.apk -a arm64-v8a -V 17.26.2 --pause
 
 # In a new terminal session, patch the manifest to add overlay permission
 # Replace TEMP_DIR with the path to the temp directory objection tells you.

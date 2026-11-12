@@ -3,7 +3,7 @@
 log_user 1
 set timeout -1
 
-spawn objection patchapk -c objection.cfg.json -s data/AmongUs.apk -l dist/agent.js -a arm64-v8a -V 17.18.0 --pause
+spawn objection patchapk -c objection.cfg.json -s data/AmongUs.apk -l dist/agent.js -a arm64-v8a -V 17.26.2 --pause
 
 expect {
     -re {(/tmp/[^\r\n]+\.apktemp)} {
