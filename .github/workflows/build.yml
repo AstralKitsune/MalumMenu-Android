@@ -25,7 +25,6 @@ jobs:
 
     - name: Build script in dev mode
       run: |
-        mkdir dist
         npm install
         npm run build:dev
 
