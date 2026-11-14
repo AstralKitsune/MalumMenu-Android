@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/),
 
 ### Changed
 
+- Bump frida-tools from 14.11.0 to 14.13.1 by [@dependabot] ([#105])
 - Bump frida-compile from 19.0.5 to 19.1.0 by [@dependabot] ([#90])
 - Bump frida from 17.18.0 to 17.26.2 by [@dependabot] ([#104])
 - Bump globals from 17.12.0 to 17.14.0 by [@dependabot] ([#98])
@@ -107,6 +108,7 @@ Initial release
 [@repinek]: https://github.com/repinek
 [@dependabot]: https://github.com/dependabot
 
+[#105]: https://github.com/AstralKitsune/MalumMenu-Android/pull/105
 [#104]: https://github.com/AstralKitsune/MalumMenu-Android/pull/104
 [#98]: https://github.com/AstralKitsune/MalumMenu-Android/pull/98
 [#96]: https://github.com/AstralKitsune/MalumMenu-Android/pull/96
