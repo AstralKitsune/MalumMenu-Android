@@ -21,7 +21,7 @@
     "main": "src/index.ts",
     "scripts": {
         "prepare": "npm run build:release",
-        "build:release": "frida-compile src/index.ts --output dist/agent.js --compress --verbose",
+        "build:release": "frida-compile src/index.ts --output dist/agent.js --compress --no-source-maps --verbose",
         "build:dev": "frida-compile src/index.ts --output dist/agent.js --verbose",
         "watch": "frida-compile src/index.ts --output dist/agent.js --verbose --watch",
         "spawn": "frida -U gadget -l dist/agent.js",
