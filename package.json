@@ -21,7 +21,7 @@
     "main": "src/index.ts",
     "scripts": {
         "prepare": "npm run build:release",
-        "build:release": "frida-compile src/index.ts --output dist/agent.js --compress --verbose",
+        "build:release": "frida-compile src/index.ts --output dist/agent.js --compress --no-source-maps --verbose",
         "build:dev": "frida-compile src/index.ts --output dist/agent.js --verbose",
         "watch": "frida-compile src/index.ts --output dist/agent.js --verbose --watch",
         "spawn": "frida -U gadget -l dist/agent.js",
@@ -37,7 +37,7 @@
         "@typescript-eslint/parser": "^8.70.1",
         "eslint": "^10.14.0",
         "eslint-config-prettier": "^10.1.8",
-        "frida-compile": "^19.0.5",
+        "frida-compile": "^19.1.0",
         "globals": "^17.14.0",
         "jiti": "^2.6.1",
         "prettier": "^3.9.10",
