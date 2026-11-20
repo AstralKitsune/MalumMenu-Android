@@ -28,6 +28,8 @@
             "speed_val": "Custom Speed: {0} / 20",
 
             "no_shadows": "No Shadows",
+            "custom_zoom": "Use Custom Zoom",
+            "zoom_val": "Custom Zoom: {0} / 30",
 
             "complete_my_tasks": "Complete My Tasks",
 

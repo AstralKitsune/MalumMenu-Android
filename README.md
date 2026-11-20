@@ -35,6 +35,7 @@
 ### ESP
 
 - No Shadows
+- Zoom Out
 
 ### Roles
 

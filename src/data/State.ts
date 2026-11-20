@@ -4,6 +4,8 @@ export const State = {
     customSpeed: false,
     speed: 5,
     noShadows: false,
+    customZoom: false,
+    zoom: 3,
     unlockVents: false,
     walkInVents: false,
 

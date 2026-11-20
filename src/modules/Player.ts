@@ -7,6 +7,8 @@ import { Logger } from "../logger/Logger";
 export class PlayerModule extends BaseModule {
     public readonly name = "Player";
 
+    private Camera!: Il2Cpp.Class;
+    private Screen!: Il2Cpp.Class;
     private Vector2!: Il2Cpp.Class;
 
     private Constants!: Il2Cpp.Class;
@@ -17,6 +19,7 @@ export class PlayerModule extends BaseModule {
     private PlayerControl!: Il2Cpp.Class;
     private PlayerPhysics!: Il2Cpp.Class;
     private PlayerPurchasesData!: Il2Cpp.Class;
+    private ResolutionManager!: Il2Cpp.Class;
     private ShipStatus!: Il2Cpp.Class;
     private Vent!: Il2Cpp.Class;
 
@@ -30,6 +33,8 @@ export class PlayerModule extends BaseModule {
     private Vent_CanUse!: Il2Cpp.Method;
 
     public init(): void {
+        this.Camera = AssemblyHelper.CoreModule.class("UnityEngine.Camera");
+        this.Screen = AssemblyHelper.CoreModule.class("UnityEngine.Screen");
         this.Vector2 = AssemblyHelper.CoreModule.class("UnityEngine.Vector2");
 
         this.Constants = AssemblyHelper.AssemblyCSharp.class("Constants");
@@ -40,6 +45,7 @@ export class PlayerModule extends BaseModule {
         this.PlayerControl = AssemblyHelper.AssemblyCSharp.class("PlayerControl");
         this.PlayerPhysics = AssemblyHelper.AssemblyCSharp.class("PlayerPhysics");
         this.PlayerPurchasesData = AssemblyHelper.AssemblyCSharp.class("PlayerPurchasesData");
+        this.ResolutionManager = AssemblyHelper.AssemblyCSharp.class("ResolutionManager");
         this.ShipStatus = AssemblyHelper.AssemblyCSharp.class("ShipStatus");
         this.Vent = AssemblyHelper.AssemblyCSharp.class("Vent");
 
@@ -249,6 +255,41 @@ export class PlayerModule extends BaseModule {
             const task = myTasks.method<Il2Cpp.Object>("get_Item").invoke(i);
             module.completeTask(task);
         }
+    }
+
+    public changeZoom(): void {
+        const module = this;
+
+        const HudManagerInstanceExists = module.HudManager.method<boolean>("get_InstanceExists").invoke();
+        if (!HudManagerInstanceExists) {
+            Logger.warn(`[${module.name}::zoomOut] HudManagerInstance does not exist`);
+            return;
+        }
+
+        // No isNull check here because we trust that InstanceExists tells the truth
+        const HudManagerInstance = module.HudManager.method<Il2Cpp.Object>("get_Instance").invoke();
+
+        const zoomValue = State.customZoom ? State.zoom : 3;
+
+        const mainCamera = module.Camera.method<Il2Cpp.Object>("get_main").invoke();
+        mainCamera.method<void>("set_orthographicSize").invoke(zoomValue);
+
+        const uiCamera = HudManagerInstance.field<Il2Cpp.Object>("UICamera").value;
+        uiCamera.method<void>("set_orthographicSize").invoke(zoomValue);
+
+        module.adjustResolution();
+    }
+
+    public adjustResolution(): void {
+        const module = this;
+
+        const width = module.Screen.method<number>("get_width").invoke();
+        const height = module.Screen.method<number>("get_height").invoke();
+        const aspectRatio = width / height;
+        const fullScreen = module.Screen.method<boolean>("get_fullScreen").invoke();
+
+        const resolutionChanged = module.ResolutionManager.field<Il2Cpp.Object>("ResolutionChanged").value;
+        resolutionChanged.method<void>("Invoke").invoke(aspectRatio, width, height, fullScreen);
     }
 
     /**
