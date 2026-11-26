@@ -12,6 +12,7 @@ export const State = {
     enableChat: false,
 
     unlockCosmetics: false,
+    noPenalties: false,
     disableAnalytics: false,
     uwuifyMode: false,
     keyboardMode: false

@@ -62,6 +62,7 @@
 
 - Unlock Cosmetics (Hats, Visors, Skins, Pets, Nameplates, Cosmicubes, Bundles)
 - Full Resolution (The game runs at half resolution by default)
+- No Disconnect Penalties
 - UwUify Game
 - Keyboard Mode
 

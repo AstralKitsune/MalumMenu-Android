@@ -29,6 +29,12 @@ export class PassiveTab {
         );
 
         add(
+            layout.toggle(I18n.t("menu.functions.no_penalties"), (state: boolean) => {
+                State.noPenalties = state;
+            })
+        );
+
+        add(
             layout.toggle(I18n.t("menu.functions.disable_analytics"), (state: boolean) => {
                 State.disableAnalytics = state;
             })
