@@ -17,5 +17,12 @@ export class HostTab {
                 UnityUtils.run(() => ModuleManager.get(HostModule)?.forceStartGame())
             )
         );
+
+        add(
+            layout.button(
+                I18n.t("menu.functions.skip_meeting"),
+                UnityUtils.run(() => ModuleManager.get(HostModule)?.skipMeeting())
+            )
+        );
     }
 }
